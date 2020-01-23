@@ -5,4 +5,12 @@
 #endif
 
 @interface RNInAppBrowser : NSObject <RCTBridgeModule>
+/**
+ Singleton class holding references to RNInAppBrowser and associated methods
+ *
+ @return A RNInAppBrowser shared instance of the single class
+ */
++ (nonnull instancetype)sharedInstance;
+- (void)_close;
 @end
+
