@@ -45,6 +45,22 @@ static RCTPromiseRejectBlock redirectReject;
 static BOOL modalEnabled;
 static BOOL animated;
 
+#pragma mark Singleton
+/**
+ *  Singleton class
+ *
+ *  @return sharedInstance to the SFSafariViewController
+ */
++ (id)sharedInstance
+{
+  static RNInAppBrowser *IABrowser = nil;
+  @synchronized(self) {
+    if (IABrowser == nil)
+      IABrowser = [[self alloc] init];
+  }
+  return IABrowser;
+}
+
 - (dispatch_queue_t)methodQueue
 {
   return dispatch_get_main_queue();
